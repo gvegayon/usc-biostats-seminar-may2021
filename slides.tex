@@ -1,4 +1,4 @@
-\documentclass[handout,aspectratio=169, 9pt]{beamer}
+\documentclass[aspectratio=169, 9pt]{beamer}
 
 %\transdissolve[duration=0.2] % Only works with Adobe Acrobat
 
@@ -573,18 +573,52 @@ With this modeling framework, we could tackle, e.g.,
     
 \end{frame}
 
+% ------------------------------------------------------------------------------
+\section{GEESE vs aphylo}
+
+\begin{frame}[t]
+	\usebeamertemplate{section intro}{}{}
+	\textcolor{uscgold}{
+		\Large {\bf A GEESE vs aphylo} 
+	}
+
+\centering
+
+\begin{minipage}[t]{.4\linewidth}
+	\raggedleft
+	\includegraphics[width=.6\linewidth]{geese-logo.png}
+\end{minipage} 
+\begin{minipage}[t]{.4\linewidth}
+	\raggedright
+	\includegraphics[width=.6\linewidth]{aphylo-logo.png}
+\end{minipage} 
+
+\end{frame}
+
 \begin{frame}
-	\frametitle{Challenges}
+	\frametitle{Support size: Computational feasibility}
+	Whether the likelihood is tracktable or not depends on how large is the \textbf{``largest event''}
 	\begin{figure}
-		\includegraphics[width=.7\linewidth]{polytomies.pdf}
-		\caption{\textit{Possible reconciliation states}. (a) Shows a fully reconciled tree in which each interior node has two decedents. (b) Illustrates a potentially reconciled tree, yet with a \textit{hard polytomy}. In that case, these five genes could be the result of a multifurcating speciation event. (c) Shows a \textit{soft polytomy}, which illustrates uncertainty about the best hypothesis connecting these genes.}
+		\scalebox{.8}{
+			\footnotesize
+		%\includegraphics[width=.7\linewidth]{polytomies.pdf}
+		\def\svgwidth{1\linewidth}
+		\mode<handout>{\input{fig/polytomies.pdf_tex}}%
+		\mode<beamer>{%
+			\only<1>{\input{fig/polytomies-1.pdf_tex}}%
+			\only<2>{\input{fig/polytomies-2.pdf_tex}}%
+			\only<3>{\input{fig/polytomies.pdf_tex}}%
+		}
+		}
+%		\caption{\textit{Possible reconciliation states}. (a) Shows a fully reconciled tree in which each interior node has two decedents. (b) Illustrates a potentially reconciled tree, yet with a \textit{hard polytomy}. In that case, these five genes could be the result of a multifurcating speciation event. (c) Shows a \textit{soft polytomy}, which illustrates uncertainty about the best hypothesis connecting these genes.}
 	\end{figure}
 \end{frame}
 
 
 \begin{frame}
 	\begin{figure}
-		\includegraphics[width=.5\linewidth]{geese-vs-aphylo-one-at-a-time.pdf}
+		\includegraphics[width=.45\linewidth]{geese-vs-aphylo-one-at-a-time.pdf}
+		\caption{\textit{Performance as Mean Absolute Error (MAE)}. Each set of coordinates shows the value of 1 minus the MAE of \textbf{GEESE}, x-axis, and \textbf{aphylo} (y-axis). The statistics were computed using leave-one-out based on individual parameter estimates. Overall, GEESE performs better than aphylo in most cases.}
 	\end{figure}
 \end{frame}
 
