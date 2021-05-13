@@ -16,6 +16,34 @@
 \usepackage{amsmath, amssymb}
 \input{notation-thesis.tex}
 
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
 % New notation ------------------------------------------------------------------
 \newcommand{\expo}{E}
 \newcommand{\Expo}{\mathbf{\expo{}}}
@@ -498,6 +526,26 @@
 	\end{minipage}
 \end{frame}
 
+\begin{frame}
+	\frametitle{Support size: Computational feasibility}
+	Whether the likelihood is tracktable or not depends on how large is the \textbf{``largest event''}
+	\begin{figure}
+		\scalebox{.8}{
+			\footnotesize
+			%\includegraphics[width=.7\linewidth]{polytomies.pdf}
+			\def\svgwidth{1\linewidth}
+			\mode<handout>{\input{fig/polytomies.pdf_tex}}%
+			\mode<beamer>{%
+				\only<1>{\input{fig/polytomies-1.pdf_tex}}%
+				\only<2>{\input{fig/polytomies-2.pdf_tex}}%
+				\only<3->{\input{fig/polytomies.pdf_tex}}%
+			}
+		}
+		%		\caption{\textit{Possible reconciliation states}. (a) Shows a fully reconciled tree in which each interior node has two decedents. (b) Illustrates a potentially reconciled tree, yet with a \textit{hard polytomy}. In that case, these five genes could be the result of a multifurcating speciation event. (c) Shows a \textit{soft polytomy}, which illustrates uncertainty about the best hypothesis connecting these genes.}
+	\end{figure}
+\uncover<4->{\small(in practice, arrays up to 32 cells, i.e., 4.3 billion comb., are feasible.)}
+\end{frame}
+
 \begin{frame}[c]
 	\frametitle{Example: Simple model with two functions}
 	To illustrate, we will \textbf{simulate} and then \textbf{estimate} the parameters for the following process:
@@ -579,7 +627,8 @@ With this modeling framework, we could tackle, e.g.,
 \begin{frame}[t]
 	\usebeamertemplate{section intro}{}{}
 	\textcolor{uscgold}{
-		\Large {\bf A GEESE vs aphylo} 
+		\Large {\bf Data Application} \\
+		\normalsize{\bf Using experimentally annotated phylogenies} 
 	}
 
 \centering
@@ -595,31 +644,64 @@ With this modeling framework, we could tackle, e.g.,
 
 \end{frame}
 
+
+
 \begin{frame}
-	\frametitle{Support size: Computational feasibility}
-	Whether the likelihood is tracktable or not depends on how large is the \textbf{``largest event''}
-	\begin{figure}
-		\scalebox{.8}{
-			\footnotesize
-		%\includegraphics[width=.7\linewidth]{polytomies.pdf}
-		\def\svgwidth{1\linewidth}
-		\mode<handout>{\input{fig/polytomies.pdf_tex}}%
-		\mode<beamer>{%
-			\only<1>{\input{fig/polytomies-1.pdf_tex}}%
-			\only<2>{\input{fig/polytomies-2.pdf_tex}}%
-			\only<3>{\input{fig/polytomies.pdf_tex}}%
-		}
-		}
-%		\caption{\textit{Possible reconciliation states}. (a) Shows a fully reconciled tree in which each interior node has two decedents. (b) Illustrates a potentially reconciled tree, yet with a \textit{hard polytomy}. In that case, these five genes could be the result of a multifurcating speciation event. (c) Shows a \textit{soft polytomy}, which illustrates uncertainty about the best hypothesis connecting these genes.}
-	\end{figure}
+	\frametitle{Comparison setup}
+	Using data from Vega Yon et al. (2021), we re-estimated the models using \textbf{GEESE} and compared the results to those in the \textbf{aphylo} paper:
+	
+	\begin{itemize}
+		\item 77 experimentally annotated trees
+		\item We only used trees in which 
+		$$2^{(\max{\mbox{Polytomy}} + 1)\times \mbox{nfuns}}< 0.5\times 10^9$$
+		\noindent i.e., half billion
+		\item Both models used "informative" priors.
+		\item Both were fitted using Adaptive Metropolis (\textbf{fmcmc} R package).
+	\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+	\frametitle{Example of code (R)}
+	
+After initializing a \texttt{geese} object named \texttt{model2fit}:
+	
+\begin{lstlisting}[language=R] 
+# For later use (see last two lines)
+term_overall_changes(model2fit, duplication = TRUE)
+term_overall_changes(model2fit, duplication = FALSE)
+
+# Couting how many genes change
+term_genes_changing(model2fit, duplication = TRUE)
+
+# Gain and loss at duplication
+term_gains(model2fit, funs = 0:1, duplication = TRUE)
+term_loss(model2fit, funs = 0:1, duplication = TRUE)
+
+# Gain and loss at speciation
+term_gains(model2fit, funs = 0:1, duplication = FALSE)
+term_loss(model2fit, funs = 0:1, duplication = FALSE)
+
+# Constraining the support set
+rule_limit_changes(model2fit, id = 0, lb = 0, ub = 4, duplication = TRUE)
+rule_limit_changes(model2fit, id = 1, lb = 0, ub = 4, duplication = FALSE)
+\end{lstlisting}
+	
+\end{frame}
 
 \begin{frame}
 	\begin{figure}
 		\includegraphics[width=.45\linewidth]{geese-vs-aphylo-one-at-a-time.pdf}
 		\caption{\textit{Performance as Mean Absolute Error (MAE)}. Each set of coordinates shows the value of 1 minus the MAE of \textbf{GEESE}, x-axis, and \textbf{aphylo} (y-axis). The statistics were computed using leave-one-out based on individual parameter estimates. Overall, GEESE performs better than aphylo in most cases.}
 	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Tapping into computational scalability}
+	\begin{figure}
+		\includegraphics[width=.8\linewidth]{flock-plot.pdf}
+		\caption{A dramatization of how a group of GEESE, i.e., a flock, looks like.}
+	\end{figure}
+
 \end{frame}
 
 \begin{frame}[t]
