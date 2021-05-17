@@ -54,16 +54,16 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{polytomies.pdf}}%
+    \put(0.37127303,0.43847865){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(b) Hard polytomy - 2 functions\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{polytomies.pdf}}%
+    \put(0.53823012,0.03699042){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$2^{2\times 6}=$4,096\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{polytomies.pdf}}%
+    \put(0.72154622,0.44081616){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(c) Reconciled tree 3 functions\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{polytomies.pdf}}%
+    \put(0.85183085,0.03699052){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$2^{3\times 3}=$512\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{polytomies.pdf}}%
     \put(0.03213653,0.43847865){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(a) Reconciled tree 2 functions\end{tabular}}}}%
     \put(0.16255723,0.03699052){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$2^{2\times 3}=$64\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{polytomies.pdf}}%
-    \put(0.72154622,0.44081616){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(c) Reconciled tree 3 functions\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{polytomies.pdf}}%
-    \put(0.85183085,0.03699052){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$2^{3\times 3}=$512\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=4]{polytomies.pdf}}%
-    \put(0.37127303,0.43847865){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(b) Hard polytomy - 2 functions\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=5]{polytomies.pdf}}%
-    \put(0.53823012,0.03699042){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$2^{2\times 6}=$4,096\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{polytomies.pdf}}%
     \put(0.01038156,0.08256819){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Parent\end{tabular}}}}%
     \put(0.04658588,0.13193364){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Offspring\end{tabular}}}}%
