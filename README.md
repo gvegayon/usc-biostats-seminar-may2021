@@ -11,6 +11,7 @@ En términos simples, los modelos de predicción a base de filogenética nos per
 
 Las principales contribuciones de nuestro trabajo son tres: Evita la “maldición de la dimensionalidad” típicamente experimentada en los modelos de Markov, proporciona una método para realizar pruebas de hipótesis de diferentes teorías de la evolución genética, y más importante, promete mejorar nuestra capacidad predictiva.
 
+[slides](../../raw/esp/slides.pdf) | [handout](../../raw/esp/handout.pdf)
 
 # Acerca del Autor
 
