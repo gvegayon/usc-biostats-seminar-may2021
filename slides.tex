@@ -138,7 +138,7 @@ Triadas, lazos y funciones genéticas\\cuando las redes sociales y la filogenét
 \frame{\frametitle{Contents}
 	\tableofcontents
 	\vfill
-	%You can download the slides from\large{} %{\color{usccardinal}\href{https://ggv.cl/slides/nygc}{ggv.cl/slides/nygc}}
+	You can download the slides from\large{} {\color{usccardinal}\href{https://ggv.cl/slides/uai-ds-may}{ggv.cl/slides/uai-ds-may}}
 	\normalsize
 }
 
@@ -220,7 +220,32 @@ Triadas, lazos y funciones genéticas\\cuando las redes sociales y la filogenét
 }%
 	\mode<handout>{\includegraphics[width=.8\linewidth]{phylo-tree-legend.pdf}}
 \end{figure}
-	\Large \vfill\hfill\uncover<4->{... Where is all this data?}\normalsize
+\end{frame}
+
+% ------------------------------------------------------------------------------
+\begin{frame}[label=go-functions-types]
+	\frametitle{Genes and their Functions}
+	
+	Gene functions can be classified in three types:
+	
+	\def\tmpwidth{.9\linewidth}
+	
+	\begin{table}
+		\begin{tabular}{*{3}{m{.31\linewidth}<{\centering}}}
+			\onslide<2->\bf Molecular function & %
+			\onslide<3->\bf Cellular component & %
+			\onslide<4->\bf Biological process \\
+			\onslide<2->\href{http://amigo.geneontology.org/amigo/term/GO:0005215}{Active transport GO:0005215}& %
+			\onslide<3->\href{http://amigo.geneontology.org/amigo/term/GO:0004016}{Mitochondria GO:0004016} & %
+			\onslide<4->\href{http://amigo.geneontology.org/amigo/term/GO:0060047}{Heart contraction GO:0060047} \\
+			\onslide<2->\includegraphics[width=\tmpwidth]{Sodium-potassium_pump_and_diffusion.png} & %
+			\onslide<3->\includegraphics[width=\tmpwidth]{640px-Animal_Cell-svg.png} & % 
+			\onslide<4->\includegraphics[width=\tmpwidth]{Systolevs_Diastole.png}
+		\end{tabular}
+	\end{table}
+	
+%	\vfill \hfill \hyperlink{geneontology}{\beamerreturnbutton{go back}}
+	\Large \vfill\hfill\uncover<5->{... Where is all this data?}\normalsize
 \end{frame}
 
 \begin{frame}[c,label=geneontology]
@@ -241,7 +266,7 @@ Triadas, lazos y funciones genéticas\\cuando las redes sociales y la filogenét
 	\end{minipage}
 \vfill \hfill
 \Large \uncover<7->{Only on 2021, 2,500+ Cancer papers using the GO \href{https://scholar.google.com/scholar?as\_ylo=2021\&q=\%22gene+ontology\%22+Cancer\&hl=en\&as_sdt=0,5}{(Google Scholar)}}\normalsize\\
-\hfill\hyperlink{go-functions-types}{\beamergotobutton{more}}
+%\hfill\hyperlink{go-functions-types}{\beamergotobutton{more}}
 
 \end{frame}
 
@@ -518,7 +543,7 @@ Triadas, lazos y funciones genéticas\\cuando las redes sociales y la filogenét
 			\includegraphics<2->[width=.95\linewidth]{geese-equation-likelihood.pdf}
 		}%
 		\mode<handout>{%
-			\includegraphics[width=.95\linewidth]{geese-equationlikelihood.pdf}
+			\includegraphics[width=.95\linewidth]{geese-equation-likelihood.pdf}
 		}
 	\end{minipage}%
 \hfill %
@@ -736,32 +761,32 @@ rule_limit_changes(model2fit, id = 1, lb = 0, ub = 4, duplication = FALSE)
 	\end{figure}
 \end{frame}
 
-\begin{frame}[label=aphylo-pooled]
-	
-	\frametitle{The benefits of pooling data}
-	
-	Results from the \textbf{aphylo} model:
-	
-	% latex table generated in R 3.6.3 by xtable 1.8-4 package
-	% Tue Apr 28 11:51:17 2020
-	\begin{table}[tb]
-		\centering
-		\begin{tabular}{m{.14\linewidth}*{3}{m{.14\linewidth}<\centering}}
-			\toprule & \multicolumn{1}{c}{\textit{Pooled-data}} & \multicolumn{2}{c}{One-at-a-time} \\ \cmidrule(r){2-2}\cmidrule(r){3-4}
-			& Beta prior & Unif. prior & Beta Prior \\ 
-			\midrule
-			\textit{Pooled-data} \\
-			\hspace{2mm}Unif. prior & \cellcolor{blue!25}[-0.02,-0.01] & \cellcolor{blue!25}[-0.14,-0.10] & \cellcolor{blue!25}[-0.06,-0.03] \\ 
-			\hspace{2mm}Beta prior &  - & \cellcolor{blue!25}[-0.12,-0.09] & \cellcolor{blue!25}[-0.04,-0.01] \\ 
-			\textit{One-at-a-time} \\
-			\hspace{2mm}Unif. prior &  - & - & \cellcolor{red!25}[\hphantom{-}0.06,\hphantom{-}0.09] \\ 
-			\bottomrule
-		\end{tabular}
-		\caption[Differences in Mean Absolute Error]{Differences in Mean Absolute Error [MAE]. Each cell shows the 95\% confidence interval for the difference in MAE resulting from two methods (row method minus column method). Cells are color coded blue when the method on that row has a significantly smaller MAE than the method on that column; Conversely, cells are colored red when the method in that column outperforms the method in that row.  Overall, predictions calculated using the parameter estimates from \textit{pooled-data} predictions outperform \textit{one-at-a-time}.}
-		\label{tab:vs-accuracy}
-	\end{table}
-	
-\end{frame}
+%\begin{frame}[label=aphylo-pooled]
+%	
+%	\frametitle{The benefits of pooling data}
+%	
+%	Results from the \textbf{aphylo} model:
+%	
+%	% latex table generated in R 3.6.3 by xtable 1.8-4 package
+%	% Tue Apr 28 11:51:17 2020
+%	\begin{table}[tb]
+%		\centering
+%		\begin{tabular}{m{.14\linewidth}*{3}{m{.14\linewidth}<\centering}}
+%			\toprule & \multicolumn{1}{c}{\textit{Pooled-data}} & \multicolumn{2}{c}{One-at-a-time} \\ \cmidrule(r){2-2}\cmidrule(r){3-4}
+%			& Beta prior & Unif. prior & Beta Prior \\ 
+%			\midrule
+%			\textit{Pooled-data} \\
+%			\hspace{2mm}Unif. prior & \cellcolor{blue!25}[-0.02,-0.01] & \cellcolor{blue!25}[-0.14,-0.10] & \cellcolor{blue!25}[-0.06,-0.03] \\ 
+%			\hspace{2mm}Beta prior &  - & \cellcolor{blue!25}[-0.12,-0.09] & \cellcolor{blue!25}[-0.04,-0.01] \\ 
+%			\textit{One-at-a-time} \\
+%			\hspace{2mm}Unif. prior &  - & - & \cellcolor{red!25}[\hphantom{-}0.06,\hphantom{-}0.09] \\ 
+%			\bottomrule
+%		\end{tabular}
+%		\caption[Differences in Mean Absolute Error]{Differences in Mean Absolute Error [MAE]. Each cell shows the 95\% confidence interval for the difference in MAE resulting from two methods (row method minus column method). Cells are color coded blue when the method on that row has a significantly smaller MAE than the method on that column; Conversely, cells are colored red when the method in that column outperforms the method in that row.  Overall, predictions calculated using the parameter estimates from \textit{pooled-data} predictions outperform \textit{one-at-a-time}.}
+%		\label{tab:vs-accuracy}
+%	\end{table}
+%	
+%\end{frame}
 
 \begin{frame}
 	\frametitle{Tapping into computational scalability}
@@ -888,7 +913,7 @@ rule_limit_changes(model2fit, id = 1, lb = 0, ub = 4, duplication = FALSE)
 	\usebeamertemplate{section intro}{}{}
 	\textbf{%
 		\color{uscgold}
-		\Large ``GEne functional Evolution using SufficiEncy''\\\textit{or}\\GEESE\large %
+		\Large Triadas, lazos y funciones genéticas\\cuando las redes sociales y la filogenética se encuentran\large %
 	}
 
 	\textbf{
@@ -917,7 +942,7 @@ rule_limit_changes(model2fit, id = 1, lb = 0, ub = 4, duplication = FALSE)
 	
 	
 	\begin{center}
-	\scalebox{2}{\textcolor{uscgold}{Thank you!}} 
+	\scalebox{2}{\textcolor{uscgold}{Gracias!}} 
 	\end{center}
 \end{frame}
 
@@ -934,31 +959,7 @@ rule_limit_changes(model2fit, id = 1, lb = 0, ub = 4, duplication = FALSE)
 % ------------------------------------------------------------------------------
 \changemode{handout}
 
-% ------------------------------------------------------------------------------
-\begin{frame}[label=go-functions-types]
-	\frametitle{Genes and their Functions}
-	
-	Gene functions can be classified in three types:
-	
-	\def\tmpwidth{.9\linewidth}
-	
-	\begin{table}
-		\begin{tabular}{*{3}{m{.31\linewidth}<{\centering}}}
-			\onslide<2->\bf Molecular function & %
-			\onslide<3->\bf Cellular component & %
-			\onslide<4->\bf Biological process \\
-			\onslide<2->\href{http://amigo.geneontology.org/amigo/term/GO:0005215}{Active transport GO:0005215}& %
-			\onslide<3->\href{http://amigo.geneontology.org/amigo/term/GO:0004016}{Mitochondria GO:0004016} & %
-			\onslide<4->\href{http://amigo.geneontology.org/amigo/term/GO:0060047}{Heart contraction GO:0060047} \\
-			\onslide<2->\includegraphics[width=\tmpwidth]{Sodium-potassium_pump_and_diffusion.png} & %
-			\onslide<3->\includegraphics[width=\tmpwidth]{640px-Animal_Cell-svg.png} & % 
-			\onslide<4->\includegraphics[width=\tmpwidth]{Systolevs_Diastole.png}
-		\end{tabular}
-	\end{table}
-	
-	\vfill \hfill \hyperlink{geneontology}{\beamerreturnbutton{go back}}
-	
-\end{frame}
+
 
 
 \begin{frame}[label=aphylo-goexample]
